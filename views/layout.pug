@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    script(src='https://www.gstatic.com/firebasejs/3.6.3/firebase.js')
+    script.
+      var config = {
+        apiKey: "AIzaSyAYNL_pXtUz8xa5Qkw9YA1PlrXQSeeDkz4",
+        authDomain: "node-test-36a42.firebaseapp.com",
+        databaseURL: "https://node-test-36a42.firebaseio.com",
+        storageBucket: "node-test-36a42.appspot.com",
+        messagingSenderId: "13908002465"
+      };
+      firebase.initializeApp(config);
