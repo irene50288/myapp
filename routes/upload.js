@@ -10,11 +10,8 @@ router.post('/', images.multer.single('sampleFile'), images.sendUploadToGCS, fun
     data.imageUrl = req.file.cloudStoragePublicUrl;
     res.send('File uploaded!');
   } else {
-    console.log(req.body);
     res.send('failed');
   }
-
-
 
 });
 
