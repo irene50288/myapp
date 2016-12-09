@@ -1,36 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var gcloud = require('gcloud');
-
-var config = {
-    projectId: 'fleet-tensor-152008'
-};
-var gcs = gcloud.storage(config);
-
-gcs.createBucket('my-new-bucket', function(err, bucket) {
-  if (!err) {
-    // "my-new-bucket" was successfully created.
-  }
-});
-
-var bucket = gcs.bucket('my-existing-bucket');
+var images = require('../lib/images');
 
 /* POST to /upload */
-router.post('/', function (req, res) {
+router.post('/', images.multer.single('image'), images.sendUploadToGCS, function(req, res, next) {
+  var data = req.body;
 
+  if (req.file && req.file.cloudStoragePublicUrl) {
+    data.imageUrl = req.file.cloudStoragePublicUrl;
+  }
 
-    if (!req.files) {
-        res.send('No files were uploaded.');
-        return;
-    }
-
-  bucket.upload('/photos/zoo/zebra.jpg', function(err, file) {
-    if (!err) {
-      // "zebra.jpg" is now in your bucket.
-    }
-  });
-
-    res.send('File uploaded!');
+  res.send('File uploaded!');
 
 });
 
