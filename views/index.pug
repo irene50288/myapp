@@ -4,5 +4,37 @@ block content
   h1= title
   p Welcome to #{title}
   form(action='/upload', method='POST', enctype="multipart/form-data")
-    input(type='file', name='sampleFile')
-    input(type='submit', value='Upload!')
+    label Company name
+    input(type='text', name='companyName')
+    br
+    label Company logo
+    input(type='file', name='companyLogo')
+    br
+    label Homescreen icon
+    input(type='file', name='homescreenIcon')
+    br
+    label Hero text
+    input(type='text', name='heroText')
+    br
+    label Hero image
+    input(type='file', name='heroImage')
+    br
+    label Sub-text
+    input(type='text', name='subText')
+    br
+    label Call-to-action text
+    input(type='text', name='ctaText')
+    br
+    label Primary foreground color
+    input(type='text', name='colorFgPrimary', value='#000')
+    br
+    label Primary background color
+    input(type='text', name='colorBgPrimary', value='#fff')
+    br
+    label Secondary foreground color
+    input(type='text', name='colorFgSecondary', value='#666')
+    br
+    label Secondary background color
+    input(type='text', name='colorBgSecondary', value='#999')
+    br
+    input(type='submit', value='Submit')

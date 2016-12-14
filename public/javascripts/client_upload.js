@@ -17,5 +17,6 @@ var uploadFile = function(el) {
     console.log('Uploaded a blob or file!');
     var tEnd = performance.now();
     console.log(tEnd - tStart);
+    console.log(snapshot);
   });
 };
