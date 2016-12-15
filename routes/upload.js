@@ -31,8 +31,13 @@ var fieldsArray = [
 ];
 
 router.post('/', images.multer.fields(fieldsArray), function(req, res, next){
-  console.log(req.body);
-  console.log(req.files);
+  var data = req.body;
+  images.createStorageBucket(data['companyName']);
+  var files = req.files;
+  var filesKeys = Object.keys(files);
+  filesKeys.forEach(function (key) {
+    images.sendUploadToGCS(files[key][0], res, next);
+  });
   res.send('success');
 });
 module.exports = router;
