@@ -30,14 +30,13 @@ var fieldsArray = [
   {name: 'colorBgSecondary', maxCount: 1}
 ];
 
-router.post('/', images.multer.fields(fieldsArray), function(req, res, next){
-  var data = req.body;
-  images.createStorageBucket(data['companyName']);
-  var files = req.files;
-  var filesKeys = Object.keys(files);
-  filesKeys.forEach(function (key) {
-    images.sendUploadToGCS(files[key][0], res, next);
+router.post('/', images.multer.fields(fieldsArray), function(req, res, next) {
+  images.uploadFile(req).then(function(result){
+    console.log(result);
+    res.send(result);
+  }).catch(function(err){
+    console.log(err);
   });
-  res.send('success');
 });
+
 module.exports = router;
