@@ -1,4 +1,8 @@
 extends layout
+block script
+  script(type='text/javascript', src='javascripts/tinycolorpicker.min.js')
+  script(src='https://www.gstatic.com/firebasejs/3.6.3/firebase.js')
+  script(src='/javascripts/client_upload.js')
 
 block content
   h1= title
@@ -25,8 +29,18 @@ block content
     label Call-to-action text
     input(type='text', name='ctaText')
     br
+    label File for color picker
+    input#file-input(type='file' onchange='uploadFile(this)')
+    #imageContainer
+    br
     label Primary foreground color
-    input(type='text', name='colorFgPrimary', value='#000')
+    #colorPicker
+          a.color
+            .colorInner
+          .track
+          ul.dropdown
+            li
+          input.colorInput(type='hidden', name='colorFgPrimary')
     br
     label Primary background color
     input(type='text', name='colorBgPrimary', value='#fff')
@@ -38,3 +52,14 @@ block content
     input(type='text', name='colorBgSecondary', value='#999')
     br
     input(type='submit', value='Submit')
+
+
+
+
+  script(type='text/javascript').
+    window.onload = function () {
+      var $picker = document.getElementById("colorPicker")
+        , picker = tinycolorpicker($picker)
+        ;
+
+    };

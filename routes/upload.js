@@ -31,8 +31,8 @@ var fieldsArray = [
 ];
 
 router.post('/', images.multer.fields(fieldsArray), function(req, res, next) {
+  console.log(req.body);
   images.uploadFile(req).then(function(result){
-    console.log(result);
     res.send(result);
   }).catch(function(err){
     console.log(err);
