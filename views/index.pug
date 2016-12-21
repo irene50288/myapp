@@ -5,8 +5,6 @@ block script
   script(src='/javascripts/client_upload.js')
 
 block content
-  h1= title
-  p Welcome to #{title}
   form(action='/upload', method='POST', enctype="multipart/form-data")
     label Company name
     input(type='text', name='companyName')
@@ -29,27 +27,73 @@ block content
     label Call-to-action text
     input(type='text', name='ctaText')
     br
-    label File for color picker
-    input#file-input(type='file' onchange='uploadFile(this)')
-    #imageContainer
+    //label Pick colors form image
+    //input#uploadImage(type='checkbox', onchange='toggleUploadImageField(this)')
+
+    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='uploadImage')
+      input#uploadImage.mdl-checkbox__input(type='checkbox', onchange='toggleUploadImageField(this)')
+      span.mdl-checkbox__label Upload image to pick colors
+    br
+    #fileForPicker(style='display: none;')
+      label File for color picker
+      input#file-input(type='file' onchange='uploadFile(this)')
+      #imageContainer
     br
     label Primary foreground color
-    #colorPicker
-          a.color
-            .colorInner
-          .track
-          ul.dropdown
-            li
-          input.colorInput(type='hidden', name='colorFgPrimary')
+    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showPrimaryFgPicker')
+      input#showPrimaryFgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "primaryFgColorPicker")')
+      span.mdl-checkbox__label Pick colors form image
+    br
+    input#primaryFgColorPickerInput(type='color', name='colorFgPrimary')
+    #primaryFgColorPicker.colorPicker(style='display: none;')
+      a.color
+        .colorInner
+      .track
+      ul.dropdown
+        li
+      input.colorInput(type='hidden', name='colorFgPrimary')
     br
     label Primary background color
-    input(type='color', name='colorBgPrimary', value='#fff')
+    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showPrimaryBgPicker')
+      input#showPrimaryBgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "primaryBgColorPicker")')
+      span.mdl-checkbox__label Pick colors form image
+    br
+    input#primaryBgColorPickerInput(type='color', name='colorBgPrimary')
+    #primaryBgColorPicker.colorPicker(style='display: none;')
+      a.color
+        .colorInner
+      .track
+      ul.dropdown
+        li
+      input.colorInput(type='hidden', name='colorBgPrimary')
     br
     label Secondary foreground color
-    input(type='text', name='colorFgSecondary', value='#666')
+    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showSecondaryFgPicker')
+      input#showSecondaryFgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "secondaryFgColorPicker")')
+      span.mdl-checkbox__label Pick colors form image
+    br
+    input#secondaryFgColorPickerInput(type='color', name='colorFgSecondary')
+    #secondaryFgColorPicker.colorPicker(style='display: none;')
+      a.color
+        .colorInner
+      .track
+      ul.dropdown
+        li
+      input.colorInput(type='hidden', name='colorFgSecondary')
     br
     label Secondary background color
-    input(type='text', name='colorBgSecondary', value='#999')
+    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showSecondaryBgPicker')
+      input#showSecondaryBgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "secondaryBgColorPicker")')
+      span.mdl-checkbox__label Pick colors form image
+    br
+    input#secondaryBgColorPickerInput(type='color', name='colorBgSecondary')
+    #secondaryBgColorPicker.colorPicker(style='display: none;')
+      a.color
+        .colorInner
+      .track
+      ul.dropdown
+        li
+      input.colorInput(type='hidden', name='colorBgSecondary')
     br
     input(type='submit', value='Submit')
 
@@ -58,8 +102,5 @@ block content
 
   script(type='text/javascript').
     window.onload = function () {
-      var $picker = document.getElementById("colorPicker")
-        , picker = tinycolorpicker($picker)
-        ;
 
     };
