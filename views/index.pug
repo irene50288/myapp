@@ -39,61 +39,52 @@ block content
       input#file-input(type='file' onchange='uploadFile(this)')
       #imageContainer
     br
-    label Primary foreground color
-    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showPrimaryFgPicker')
-      input#showPrimaryFgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "primaryFgColorPicker")')
-      span.mdl-checkbox__label Pick colors form image
-    br
-    input#primaryFgColorPickerInput(type='color', name='colorFgPrimary')
-    #primaryFgColorPicker.colorPicker(style='display: none;')
-      a.color
-        .colorInner
-      .track
-      ul.dropdown
-        li
-      input.colorInput(type='hidden', name='colorFgPrimary')
+    //label Primary foreground color
+    //label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showPrimaryFgPicker')
+    //  input#showPrimaryFgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "primaryFgColorPicker")')
+    //  span.mdl-checkbox__label Pick colors form image
+    //br
+    //input#primaryFgColorPickerInput(type='color', name='colorFgPrimary')
+    //#primaryFgColorPicker.colorPicker(style='display: none;')
+    //  a.color
+    //    .colorInner
+    //  .track
+    //  ul.dropdown
+    //    li
+    //  input.colorInput(type='hidden', name='colorFgPrimary')
     br
     label Primary background color
-    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showPrimaryBgPicker')
-      input#showPrimaryBgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "primaryBgColorPicker")')
-      span.mdl-checkbox__label Pick colors form image
+    input#primaryBgColorInput(type='text', name='primaryBgColor')
+    #primaryBgColorWrapper
+      input#primaryBgColorPickerInput(type='color', name='colorBgPrimary')
     br
-    input#primaryBgColorPickerInput(type='color', name='colorBgPrimary')
-    #primaryBgColorPicker.colorPicker(style='display: none;')
-      a.color
-        .colorInner
-      .track
-      ul.dropdown
-        li
-      input.colorInput(type='hidden', name='colorBgPrimary')
-    br
-    label Secondary foreground color
-    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showSecondaryFgPicker')
-      input#showSecondaryFgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "secondaryFgColorPicker")')
-      span.mdl-checkbox__label Pick colors form image
-    br
-    input#secondaryFgColorPickerInput(type='color', name='colorFgSecondary')
-    #secondaryFgColorPicker.colorPicker(style='display: none;')
-      a.color
-        .colorInner
-      .track
-      ul.dropdown
-        li
-      input.colorInput(type='hidden', name='colorFgSecondary')
-    br
-    label Secondary background color
-    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showSecondaryBgPicker')
-      input#showSecondaryBgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "secondaryBgColorPicker")')
-      span.mdl-checkbox__label Pick colors form image
-    br
-    input#secondaryBgColorPickerInput(type='color', name='colorBgSecondary')
-    #secondaryBgColorPicker.colorPicker(style='display: none;')
-      a.color
-        .colorInner
-      .track
-      ul.dropdown
-        li
-      input.colorInput(type='hidden', name='colorBgSecondary')
+    //label Secondary foreground color
+    //label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showSecondaryFgPicker')
+    //  input#showSecondaryFgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "secondaryFgColorPicker")')
+    //  span.mdl-checkbox__label Pick colors form image
+    //br
+    //input#secondaryFgColorPickerInput(type='color', name='colorFgSecondary')
+    //#secondaryFgColorPicker.colorPicker(style='display: none;')
+    //  a.color
+    //    .colorInner
+    //  .track
+    //  ul.dropdown
+    //    li
+    //  input.colorInput(type='hidden', name='colorFgSecondary')
+    //br
+    //label Secondary background color
+    //label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showSecondaryBgPicker')
+    //  input#showSecondaryBgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "secondaryBgColorPicker")')
+    //  span.mdl-checkbox__label Pick colors form image
+    //br
+    //input#secondaryBgColorPickerInput(type='color', name='colorBgSecondary')
+    //#secondaryBgColorPicker.colorPicker(style='display: none;')
+    //  a.color
+    //    .colorInner
+    //  .track
+    //  ul.dropdown
+    //    li
+    //  input.colorInput(type='hidden', name='colorBgSecondary')
     br
     input(type='submit', value='Submit')
 

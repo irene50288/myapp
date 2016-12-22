@@ -5,21 +5,21 @@
     height:         30px;
     position: relative;
     clear: both;
-    margin: 80px auto 20px;
+    margin: 0;
 }
 
 .colorPicker .track {
     /*background:     #EFEFEF url(../images/text-color.png) no-repeat 50% 50%;*/
     height:         150px;
     width:          150px;
-    padding:        10px;
+    padding:        0;
     position:       absolute;
     cursor:         crosshair;
     float:          left;
-    left:           -71px;
-    top:            -71px;
+    left:           0;
+    top:            0;
     display:        none;
-    border:         1px solid #ccc;
+    /*border:         1px solid #ccc;*/
     z-index:        10;
     -webkit-border-radius: 150px;
     -moz-border-radius: 150px;
