@@ -1,9 +1,9 @@
 /* COLORPICKER 1 EXAMPLE */
 .colorPicker
 {
-    width:          30px;
-    height:         30px;
-    position: relative;
+    /*width:          30px;*/
+    /*height:         30px;*/
+    /*position: relative;*/
     clear: both;
     margin: 0;
 }

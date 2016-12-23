@@ -19,11 +19,15 @@ var uploadFile = function(el) {
   xhr.onreadystatechange = function() {
     if (xhr.readyState == XMLHttpRequest.DONE) {
       img.src = xhr.responseText;
+      imageContainer.innerHTML = '';
       imageContainer.appendChild(img);
       img.onload = function(){
         var rect = img.getBoundingClientRect();
         console.log(rect.top, rect.right, rect.bottom, rect.left);
+        generateColorPicker('primaryFgColor', img);
         generateColorPicker('primaryBgColor', img);
+        generateColorPicker('secondaryFgColor', img);
+        generateColorPicker('secondaryBgColor', img);
       };
     }
   };
@@ -88,11 +92,11 @@ var generateColorPicker = function(id, image){
   ctx.canvas.width = image.width;
   ctx.canvas.height = image.height;
   ctx.drawImage(image, 0, 0);
-  var imageRect = image.getBoundingClientRect();
-  container.style.left = imageRect.left + 'px';
-  container.style.top = imageRect.top + 'px';
-  container.style.position = 'absolute';
-  console.log(image.width, image.height);
+  // var imageRect = image.getBoundingClientRect();
+  // container.style.left = imageRect.left + 'px';
+  // container.style.top = imageRect.top + 'px';
+  // container.style.position = 'absolute';
+  // console.log(image.width, image.height);
 
   container.addEventListener('change',function(){
     var destinationInput = document.getElementById(id + 'Input');

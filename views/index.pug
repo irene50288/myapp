@@ -5,93 +5,62 @@ block script
   script(src='/javascripts/client_upload.js')
 
 block content
-  form(action='/upload', method='POST', enctype="multipart/form-data")
-    label Company name
-    input(type='text', name='companyName')
-    br
-    label Company logo
-    input(type='file', name='companyLogo')
-    br
-    label Homescreen icon
-    input(type='file', name='homescreenIcon')
-    br
-    label Hero text
-    input(type='text', name='heroText')
-    br
-    label Hero image
-    input(type='file', name='heroImage')
-    br
-    label Sub-text
-    input(type='text', name='subText')
-    br
-    label Call-to-action text
-    input(type='text', name='ctaText')
-    br
-    //label Pick colors form image
-    //input#uploadImage(type='checkbox', onchange='toggleUploadImageField(this)')
+  .mdl-layout__container
+    .mdl-layout.mdl-js-layout
+      header.mdl-layout__header
+      main.mdl-layout__content
+          form(action='/upload', method='POST', enctype="multipart/form-data")
+            label Company name
+            input(type='text', name='companyName')
+            br
+            label Company logo
+            input(type='file', name='companyLogo')
+            br
+            label Homescreen icon
+            input(type='file', name='homescreenIcon')
+            br
+            label Hero text
+            input(type='text', name='heroText')
+            br
+            label Hero image
+            input(type='file', name='heroImage')
+            br
+            label Sub-text
+            input(type='text', name='subText')
+            br
+            label Call-to-action text
+            input(type='text', name='ctaText')
+            br
 
-    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='uploadImage')
-      input#uploadImage.mdl-checkbox__input(type='checkbox', onchange='toggleUploadImageField(this)')
-      span.mdl-checkbox__label Upload image to pick colors
-    br
-    #fileForPicker(style='display: none;')
-      label File for color picker
-      input#file-input(type='file' onchange='uploadFile(this)')
-      #imageContainer
-    br
-    //label Primary foreground color
-    //label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showPrimaryFgPicker')
-    //  input#showPrimaryFgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "primaryFgColorPicker")')
-    //  span.mdl-checkbox__label Pick colors form image
-    //br
-    //input#primaryFgColorPickerInput(type='color', name='colorFgPrimary')
-    //#primaryFgColorPicker.colorPicker(style='display: none;')
-    //  a.color
-    //    .colorInner
-    //  .track
-    //  ul.dropdown
-    //    li
-    //  input.colorInput(type='hidden', name='colorFgPrimary')
-    br
-    label Primary background color
-    input#primaryBgColorInput(type='text', name='primaryBgColor')
-    #primaryBgColorWrapper
-      input#primaryBgColorPickerInput(type='color', name='colorBgPrimary')
-    br
-    //label Secondary foreground color
-    //label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showSecondaryFgPicker')
-    //  input#showSecondaryFgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "secondaryFgColorPicker")')
-    //  span.mdl-checkbox__label Pick colors form image
-    //br
-    //input#secondaryFgColorPickerInput(type='color', name='colorFgSecondary')
-    //#secondaryFgColorPicker.colorPicker(style='display: none;')
-    //  a.color
-    //    .colorInner
-    //  .track
-    //  ul.dropdown
-    //    li
-    //  input.colorInput(type='hidden', name='colorFgSecondary')
-    //br
-    //label Secondary background color
-    //label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='showSecondaryBgPicker')
-    //  input#showSecondaryBgPicker.mdl-checkbox__input(type='checkbox', onchange='toggleCustomColorPicker(this, "secondaryBgColorPicker")')
-    //  span.mdl-checkbox__label Pick colors form image
-    //br
-    //input#secondaryBgColorPickerInput(type='color', name='colorBgSecondary')
-    //#secondaryBgColorPicker.colorPicker(style='display: none;')
-    //  a.color
-    //    .colorInner
-    //  .track
-    //  ul.dropdown
-    //    li
-    //  input.colorInput(type='hidden', name='colorBgSecondary')
-    br
-    input(type='submit', value='Submit')
+            label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='uploadImage')
+              input#uploadImage.mdl-checkbox__input(type='checkbox', onchange='toggleUploadImageField(this)')
+              span.mdl-checkbox__label Upload image to pick colors
+            br
+            #fileForPicker(style='display: none;')
+              label File for color picker
+              input#file-input(type='file' onchange='uploadFile(this)')
+            br
+            #colorsBlock
+              #imageContainer
+              #primaryFgColorWrapper.colorPicker-wrapper
+                input#primaryFgColorPickerInput(type='color', name='primaryFg')
+              #primaryBgColorWrapper.colorPicker-wrapper
+                input#primaryBgColorPickerInput(type='color', name='primaryBg')
+              #secondaryFgColorWrapper.colorPicker-wrapper
+                input#secondaryFgColorPickerInput(type='color', name='primaryFg')
+              #secondaryBgColorWrapper.colorPicker-wrapper
+                input#secondaryBgColorPickerInput(type='color', name='primaryBg')
+            .labels-block
+              label Primary foreground color
+              label Primary background color
+              label Secondary foreground color
+              label Secondary background color
+
+
+            br
+            input(type='submit', value='Submit')
 
 
 
 
-  script(type='text/javascript').
-    window.onload = function () {
 
-    };
