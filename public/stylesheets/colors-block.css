@@ -29,3 +29,6 @@
   display: inline-block;
   width: 25%;
 }
+.image-container {
+  width: 100%;
+}
