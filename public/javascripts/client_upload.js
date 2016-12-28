@@ -23,11 +23,13 @@ var uploadFile = function(el) {
       imageContainer.appendChild(img);
       img.onload = function(){
         var rect = img.getBoundingClientRect();
+        img.width = (img.width < 500) ? img.width : 500;
+        console.log(img.width);
         console.log(rect.top, rect.right, rect.bottom, rect.left);
-        generateColorPicker('primaryFgColor', img);
-        generateColorPicker('primaryBgColor', img);
-        generateColorPicker('secondaryFgColor', img);
-        generateColorPicker('secondaryBgColor', img);
+        generateColorPicker('primaryFgColor', 'Primary foreground Color', img);
+        generateColorPicker('primaryBgColor', 'Primary background Color', img);
+        generateColorPicker('secondaryFgColor', 'Secondary foreground Color', img);
+        generateColorPicker('secondaryBgColor', 'Secondary background Color', img);
       };
     }
   };
@@ -62,7 +64,7 @@ var toggleCustomColorPicker = function(el, id){
     nativePicker.style.display = 'block';
   }
 };
-var generateColorPicker = function(id, image){
+var generateColorPicker = function(id, labelText, image){
   var container = document.createElement('div');
   container.id = id + 'Picker';
   container.className = 'colorPicker';
@@ -77,6 +79,10 @@ var generateColorPicker = function(id, image){
   input.type = 'hidden';
   input.name = id;
   input.className = 'colorInput';
+  var label = document.createElement('label');
+  label.className = 'picker-label';
+  label.innerHTML = labelText;
+  container.appendChild(label);
   container.appendChild(color);
   container.appendChild(track);
   container.appendChild(input);
@@ -87,21 +93,22 @@ var generateColorPicker = function(id, image){
   var picker = tinycolorpicker(container);
 
   // put the image to canvas
-  var c = container.children[1].children[0];
+  var c = container.children[2].children[0];
   var ctx = c.getContext("2d");
   ctx.canvas.width = image.width;
   ctx.canvas.height = image.height;
-  ctx.drawImage(image, 0, 0);
+  ctx.drawImage(image, 0, 0, image.width < 500 ? image.width : 500, image.height);
+
   // var imageRect = image.getBoundingClientRect();
   // container.style.left = imageRect.left + 'px';
   // container.style.top = imageRect.top + 'px';
   // container.style.position = 'absolute';
   // console.log(image.width, image.height);
 
-  container.addEventListener('change',function(){
-    var destinationInput = document.getElementById(id + 'Input');
-    destinationInput.value = input.value;
-  });
+  // container.addEventListener('change',function(){
+  //   var destinationInput = document.getElementById(id + 'Input');
+  //   destinationInput.value = input.value;
+  // });
 
 
 };
@@ -113,4 +120,8 @@ var generateNativeColorPicker = function(id){
   var place = document.getElementById(id + 'Wrapper');
   place.innerHTML = '';
   place.appendChild(input);
+};
+
+var showFileName = function(target){
+  target.parentElement.parentElement.childNodes[0].value = target.files[0].name;
 };
