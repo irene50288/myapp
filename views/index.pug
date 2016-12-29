@@ -58,34 +58,34 @@ block content
             //input#file-input(type='file' onchange='uploadFile(this)')
           br
 
-          #colorsBlock.mdl-grid
+          #colorsBlock
             #imageContainer.image-container
 
-            #primaryFgColorWrapper.colorPicker-wrapper.mdl-cell.mdl-cell--3-col
-              input#primaryFgColorPickerInput(type='color', name='primaryFg')
+            #primaryFgColorWrapper.colorPicker-wrapper
               label.mdl-textfield__label Primary foreground color
-            #primaryBgColorWrapper.colorPicker-wrapper.mdl-cell.mdl-cell--3-col.mdl-cell--3-offset
-              input#primaryBgColorPickerInput(type='color', name='primaryBg')
+              input#primaryFgColorPickerInput(type='color', name='primaryFg')
+            #primaryBgColorWrapper.colorPicker-wrapper
               label.mdl-textfield__label Primary background color
-            #secondaryFgColorWrapper.colorPicker-wrapper.mdl-cell.mdl-cell--3-col.mdl-cell--6-offset
-              input#secondaryFgColorPickerInput(type='color', name='secondaryFg')
+              input#primaryBgColorPickerInput(type='color', name='primaryBg')
+            #secondaryFgColorWrapper.colorPicker-wrapper
               label.mdl-textfield__label Secondary foreground color
-            #secondaryBgColorWrapper.colorPicker-wrapper.mdl-cell.mdl-cell--3-col.mdl-cell--9-offset
-              input#secondaryBgColorPickerInput(type='color', name='secondaryBg')
+              input#secondaryFgColorPickerInput(type='color', name='secondaryFg')
+            #secondaryBgColorWrapper.colorPicker-wrapper
               label.mdl-textfield__label Secondary background color
-          .labels-block.mdl-grid(style='display:none')
-            .mdl-cell.mdl-cell--3-col
-              label Primary foreground color
-            .mdl-cell.mdl-cell--3-col
-              label Primary background color
-            .mdl-cell.mdl-cell--3-col
-              label Secondary foreground color
-            .mdl-cell.mdl-cell--3-col
-              label Secondary background color
+              input#secondaryBgColorPickerInput(type='color', name='secondaryBg')
+          //.labels-block.mdl-grid(style='display:none')
+          //  .mdl-cell.mdl-cell--3-col
+          //    label Primary foreground color
+          //  .mdl-cell.mdl-cell--3-col
+          //    label Primary background color
+          //  .mdl-cell.mdl-cell--3-col
+          //    label Secondary foreground color
+          //  .mdl-cell.mdl-cell--3-col
+          //    label Secondary background color
 
 
           br
-          input(type='submit', value='Submit')
+          input.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-js-ripple-effect(type='submit', value='Submit')
 
 
 

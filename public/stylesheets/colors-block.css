@@ -9,35 +9,55 @@
   right: 0;
   top: 0;
 }
-.colorPicker .color {
-  bottom: -70px;
-  position: absolute;
-}
-#primaryBgColorPicker .color {
-  left: 25%;
-}
-#secondaryFgColorPicker .color {
-  left: 50%;
-}
-#secondaryBgColorPicker .color {
-  left: 75%;
-}
-.labels-block {
-  text-align: center;
-}
-.labels-block label {
-  display: inline-block;
+.colorPicker-wrapper label {
+  white-space: normal;
   width: 25%;
 }
+.colorPicker-wrapper input {
+  margin-left: calc(13% - 25px);
+  position: absolute;
+  top: 75px;
+}
+.colorPicker .color {
+  bottom: -70px;
+  margin-left: calc(13% - 15px);
+  position: absolute;
+}
+#primaryBgColorPicker .color,
+#primaryBgColorPicker .picker-label,
+#primaryBgColorWrapper label,
+#primaryBgColorWrapper input {
+  left: 25%;
+}
+#secondaryFgColorPicker .color,
+#secondaryFgColorPicker .picker-label,
+#secondaryFgColorWrapper label,
+#secondaryFgColorWrapper input {
+  left: 50%;
+}
+#secondaryBgColorPicker .color,
+#secondaryBgColorPicker .picker-label,
+#secondaryBgColorWrapper label,
+#secondaryBgColorWrapper input {
+  left: 75%;
+}
+/*.labels-block {*/
+  /*text-align: center;*/
+/*}*/
+/*.labels-block label {*/
+  /*display: inline-block;*/
+  /*width: 25%;*/
+/*}*/
 .image-container {
   width: 100%;
 }
 .picker-label {
   bottom: -30px;
   position: absolute;
+  width: 25%;
 }
 .form-container {
-  max-width: 500px;
+  max-width: 516px;
   width: 100%;
 }
 .mdl-textfield {

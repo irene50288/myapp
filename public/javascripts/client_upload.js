@@ -23,9 +23,9 @@ var uploadFile = function(el) {
       imageContainer.appendChild(img);
       img.onload = function(){
         var rect = img.getBoundingClientRect();
-        img.width = (img.width < 500) ? img.width : 500;
-        console.log(img.width);
-        console.log(rect.top, rect.right, rect.bottom, rect.left);
+        img.width = 500;
+        // console.log(img.width);
+        // console.log(rect.top, rect.right, rect.bottom, rect.left);
         generateColorPicker('primaryFgColor', 'Primary foreground Color', img);
         generateColorPicker('primaryBgColor', 'Primary background Color', img);
         generateColorPicker('secondaryFgColor', 'Secondary foreground Color', img);
@@ -97,7 +97,7 @@ var generateColorPicker = function(id, labelText, image){
   var ctx = c.getContext("2d");
   ctx.canvas.width = image.width;
   ctx.canvas.height = image.height;
-  ctx.drawImage(image, 0, 0, image.width < 500 ? image.width : 500, image.height);
+  ctx.drawImage(image, 0, 0, 500, image.height);
 
   // var imageRect = image.getBoundingClientRect();
   // container.style.left = imageRect.left + 'px';
