@@ -24,10 +24,10 @@ var fieldsArray = [
   {name: 'heroImage', maxCount: 1},
   {name: 'subText', maxCount: 1},
   {name: 'ctaText', maxCount: 1},
-  {name: 'colorFgPrimary', maxCount: 1},
-  {name: 'colorBgPrimary', maxCount: 1},
-  {name: 'colorFgSecondary', maxCount: 1},
-  {name: 'colorBgSecondary', maxCount: 1}
+  {name: 'primaryFg', maxCount: 1},
+  {name: 'primaryBg', maxCount: 1},
+  {name: 'secondaryFg', maxCount: 1},
+  {name: 'secondaryBg', maxCount: 1}
 ];
 
 router.post('/', images.multer.fields(fieldsArray), function(req, res, next) {

@@ -33,7 +33,7 @@ block content
             input.mdl-textfield__input(placeholder='Hero image', type='text', readonly)
             .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
               i.material-icons attach_file
-              input(type='file', name='heriImage', onchange='showFileName(this)')
+              input(type='file', name='heroImage', onchange='showFileName(this)')
           br
           .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input.mdl-textfield__input(type='text', name='subText')
@@ -52,7 +52,7 @@ block content
               input.mdl-textfield__input(placeholder='File for color picker', type='text', readonly)
               .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
                 i.material-icons attach_file
-                input(type='file', name='heriImage', onchange='showFileName(this), uploadFile(this)')
+                input(type='file', onchange='showFileName(this), uploadFile(this)')
 
             //label File for color picker
             //input#file-input(type='file' onchange='uploadFile(this)')
