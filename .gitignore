@@ -2,4 +2,3 @@ node_modules/
 .idea
 private
 public/uploads
-public/result.txt

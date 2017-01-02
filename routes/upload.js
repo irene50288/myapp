@@ -2,20 +2,6 @@ var express = require('express');
 var router = express.Router();
 var images = require('../lib/images');
 
-/* POST to /upload */
-// router.post('/', images.multer.single('sampleFile'), images.sendUploadToGCS, function(req, res, next) {
-//   var data = req.body;
-//
-//   console.log(req);
-//   if (req.file && req.file.cloudStoragePublicUrl) {
-//     data.imageUrl = req.file.cloudStoragePublicUrl;
-//     res.send('File uploaded!');
-//     console.log(data.imageUrl);
-//   } else {
-//     res.send('failed');
-//   }
-//
-// });
 var fieldsArray = [
   {name: 'companyName', maxCount: 1},
   {name: 'companyLogo', maxCount: 1},
@@ -31,7 +17,6 @@ var fieldsArray = [
 ];
 
 router.post('/', images.multer.fields(fieldsArray), function(req, res, next) {
-  console.log(req.body);
   images.uploadFile(req).then(function(result){
     res.send(result);
   }).catch(function(err){
