@@ -10,7 +10,7 @@ block content
     .mdl-grid.form-container
         form.params-form.mdl-cell.mdl-cell--12-col(action='/upload', method='POST', enctype="multipart/form-data")
           .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input.mdl-textfield__input(type='text', name='companyName')
+            input.mdl-textfield__input(type='text', name='companyName', value=configObj.companyName)
             label.mdl-textfield__label Company name
           br
           .mdl-textfield.mdl-js-textfield.mdl-textfield--file
@@ -36,11 +36,11 @@ block content
               input(type='file', name='heroImage', onchange='showFileName(this)')
           br
           .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input.mdl-textfield__input(type='text', name='subText')
+            input.mdl-textfield__input(type='text', name='subText', value=configObj.subText)
             label.mdl-textfield__label Sub-text
           br
           .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input.mdl-textfield__input(type='text', name='ctaText')
+            input.mdl-textfield__input(type='text', name='ctaText', value=configObj.ctaText)
             label.mdl-textfield__label Call-to-action text
           br
           label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='uploadImage')
@@ -59,16 +59,16 @@ block content
 
             #primaryFgColorWrapper.colorPicker-wrapper
               label.mdl-textfield__label Primary foreground color
-              input#primaryFgColorPickerInput(type='color', name='primaryFg')
+              input#primaryFgColorPickerInput(type='color', name='primaryFg', value=configObj.primaryFg)
             #primaryBgColorWrapper.colorPicker-wrapper
               label.mdl-textfield__label Primary background color
-              input#primaryBgColorPickerInput(type='color', name='primaryBg')
+              input#primaryBgColorPickerInput(type='color', name='primaryBg', value=configObj.primaryBg)
             #secondaryFgColorWrapper.colorPicker-wrapper
               label.mdl-textfield__label Secondary foreground color
-              input#secondaryFgColorPickerInput(type='color', name='secondaryFg')
+              input#secondaryFgColorPickerInput(type='color', name='secondaryFg', value=configObj.secondaryFg)
             #secondaryBgColorWrapper.colorPicker-wrapper
               label.mdl-textfield__label Secondary background color
-              input#secondaryBgColorPickerInput(type='color', name='secondaryBg')
+              input#secondaryBgColorPickerInput(type='color', name='secondaryBg', value=configObj.secondaryBg)
           br
           input.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-js-ripple-effect(type='submit', value='Submit')
 
