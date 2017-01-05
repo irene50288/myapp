@@ -11,8 +11,6 @@ firebase.initializeApp(config);
 var uploadFile = function(el) {
   var imageContainer = document.getElementById('imageContainer');
   var img = document.createElement('img');
-  // img.width = 150;
-  // img.height = 150;
   var tStart = performance.now();
   var file = el.files[0];
   var xhr = new XMLHttpRequest();
@@ -24,8 +22,6 @@ var uploadFile = function(el) {
       img.onload = function(){
         var rect = img.getBoundingClientRect();
         img.width = 500;
-        // console.log(img.width);
-        // console.log(rect.top, rect.right, rect.bottom, rect.left);
         generateColorPicker('primaryFgColor', 'Primary foreground Color', img);
         generateColorPicker('primaryBgColor', 'Primary background Color', img);
         generateColorPicker('secondaryFgColor', 'Secondary foreground Color', img);
@@ -98,19 +94,6 @@ var generateColorPicker = function(id, labelText, image){
   ctx.canvas.width = image.width;
   ctx.canvas.height = image.height;
   ctx.drawImage(image, 0, 0, 500, image.height);
-
-  // var imageRect = image.getBoundingClientRect();
-  // container.style.left = imageRect.left + 'px';
-  // container.style.top = imageRect.top + 'px';
-  // container.style.position = 'absolute';
-  // console.log(image.width, image.height);
-
-  // container.addEventListener('change',function(){
-  //   var destinationInput = document.getElementById(id + 'Input');
-  //   destinationInput.value = input.value;
-  // });
-
-
 };
 
 var generateNativeColorPicker = function(id){
@@ -125,3 +108,4 @@ var generateNativeColorPicker = function(id){
 var showFileName = function(target){
   target.parentElement.parentElement.childNodes[0].value = target.files[0].name;
 };
+

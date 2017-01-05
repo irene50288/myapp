@@ -3,6 +3,7 @@ var router = express.Router();
 var images = require('../lib/images');
 
 var fieldsArray = [
+  {name: 'bucketName', maxCount: 1},
   {name: 'companyName', maxCount: 1},
   {name: 'companyLogo', maxCount: 1},
   {name: 'homescreenIcon', maxCount: 1},

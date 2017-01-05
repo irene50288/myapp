@@ -1,6 +1,6 @@
 extends layout
 block script
-  script(type='text/javascript', src='javascripts/tinycolorpicker.min.js')
+  script(type='text/javascript', src='/javascripts/tinycolorpicker.min.js')
   script(src='https://www.gstatic.com/firebasejs/3.6.3/firebase.js')
   script(src='/javascripts/client_upload.js')
 
@@ -9,28 +9,29 @@ block content
     header.mdl-layout__header
     .mdl-grid.form-container
         form.params-form.mdl-cell.mdl-cell--12-col(action='/upload', method='POST', enctype="multipart/form-data")
+          input(type='hidden', name='bucketName', value=configObj.bucketName)
           .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input.mdl-textfield__input(type='text', name='companyName', value=configObj.companyName)
             label.mdl-textfield__label Company name
           br
           .mdl-textfield.mdl-js-textfield.mdl-textfield--file
-            input.mdl-textfield__input(placeholder='Company logo', type='text', readonly)
+            input.mdl-textfield__input(placeholder='Company logo', type='text', readonly, value=configObj.companyLogo)
             .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
               i.material-icons attach_file
               input(type='file', name='companyLogo', onchange='showFileName(this)')
           br
           .mdl-textfield.mdl-js-textfield.mdl-textfield--file
-            input.mdl-textfield__input(placeholder='Homescreen icon', type='text', readonly)
+            input.mdl-textfield__input(placeholder='Homescreen icon', type='text', readonly, value=configObj.homescreenIcon)
             .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
               i.material-icons attach_file
               input(type='file', name='homescreenIcon', onchange='showFileName(this)')
           br
           .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input.mdl-textfield__input(type='text', name='heroText')
+            input.mdl-textfield__input(type='text', name='heroText', value=configObj.heroText)
             label.mdl-textfield__label Hero text
           br
           .mdl-textfield.mdl-js-textfield.mdl-textfield--file
-            input.mdl-textfield__input(placeholder='Hero image', type='text', readonly)
+            input.mdl-textfield__input(placeholder='Hero image', type='text', readonly, value=configObj.heroImage)
             .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
               i.material-icons attach_file
               input(type='file', name='heroImage', onchange='showFileName(this)')
