@@ -17,7 +17,7 @@
 .colorPicker-wrapper input {
   margin-left: calc(13% - 25px);
   position: absolute;
-  top: 75px;
+  top: 95px;
   z-index: 2;
 }
 .colorPicker .color {
